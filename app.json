@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "prueba-apk",
+    "slug": "prueba-apk",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "prueba-apk"
+}
