@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { SafeAreaView } from 'react-native';
+import MainStack from './navigation/MainStack';
+import { EventRegister } from 'react-native-event-listeners';
+import themeContext from './config/themeContext';
+import theme from './config/theme';
 
-export default function App() {
+function App() {
+  const[mode, setMode] = useState(false);
+  useEffect(() =>{
+    let eventListener = EventRegister.addEventListener("changeTheme",(data) => {
+      setMode(data);
+    });
+    return () =>{
+      EventRegister.removeEventListener(eventListener);
+    }
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <themeContext.Provider value ={mode === true ? theme.dark : theme.light}>
+      <SafeAreaView  style = {{ flex: 1, marginTop:Platform.OS === 'ios' ? -20 : 0,}}>
+        <MainStack/>       
+      </SafeAreaView>
+    </themeContext.Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
