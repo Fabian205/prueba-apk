@@ -13,6 +13,17 @@
     "assetBundlePatterns": [
       "assets/*"
     ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "prueba-apk"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.rodrigo_205.prueba-apk"
+    },
     "extra": {
       "eas": {
         "projectId": "8ba91129-3ee8-4570-b29c-ce547b00b1e1"

@@ -193,7 +193,7 @@ const LoginScreen = () => {
       </View>
         <Separator/>
         <Separator2 />
-        <Boton text="Ingresar" onPress={Login2} />     
+        <Boton text="Ingresar" onPress={Login} />     
     </ScrollView>
   );
 };
